@@ -1,0 +1,38 @@
+public String uploadService(MultipartFile multipartFile) throws IOException, GitAPIException, URISyntaxException {
+        File gitDir = new File("C:\\Users\\Public\\shared-folder\\spring-cloud-config-example-config\\.git");
+
+        RepositoryBuilder builder = new RepositoryBuilder();
+        Repository repository;
+        repository = builder.setGitDir(gitDir).readEnvironment()
+                .findGitDir().build();
+
+        List<DepthWalk.Commit> commitsList = new ArrayList<DepthWalk.Commit>();
+
+        Git git = new Git(repository);
+        File myFile = new File(git.getRepository().getDirectory().getParent(), multipartFile.getResource().getFilename());
+        multipartFile.transferTo(myFile);
+        git.add().addFilepattern(".").call();
+
+        CommitCommand commitCommand = git.commit().setMessage("init project")
+                .setCommitter("commitModel.getUsername()", "ddd");
+        commitCommand.setMessage("initial commit").call();
+
+        if (!myFile.exists()) {
+            throw new IOException("Could not create file " + myFile);
+        }
+
+        List<Ref> call = git.branchList().call();
+
+        for(Ref ref : call ){
+            File file = new File("C:\\Users\\Public\\shared-folder\\spring-cloud-config-example-config");
+            git = Git.init().setDirectory(file).call();
+            git.remoteAdd().setUri(new URIish("https://github.com/macorapci/spring-cloud-config-example-config")).setName("origin").call();
+            git.push().setCredentialsProvider(new UsernamePasswordCredentialsProvider( "macorapci", "" ))
+                    .setPushAll()
+                    .add(".")
+                    .call();
+            //git.push().setRemote("https://github.com/meteatbas/parcial1").setCredentialsProvider(new UsernamePasswordCredentialsProvider("","" )).setPushAll().add(".").call();
+        }
+
+        return multipartFile.getName();
+    }
