@@ -1,0 +1,26 @@
+0)labellar solda
+
+1)bir düğme 
+
+2)2 input
+	-name 
+	-defaultResponse
+	
+	
+	
+																			-------
+--------------------------------------------------------------------------	|Buton|
+	                        |       Language:Foo        |     Language:Bar   ------
+Name giriniz:               |       INPUT ALANI         |      INPUT ALANI
+							|	         				|
+DefaultResponse	giriniz:    |       INPUT ALANI         |	   INPUT ALANI	
+							|							|
+							|							|
+							|							|
+							|							|
+							|							|
+								<----------------------------Scrool----------------------->
+
+3)input alanlarından girilen değerler languageConfigList in alanlarına doldurulacak...
+
+languageConfigList'in alanları'na array olarak ekleyemedim onun yerine yeni bir array açtım ve obje olarak array'in içine ekledim 
