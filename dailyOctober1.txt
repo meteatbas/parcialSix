@@ -1,0 +1,379 @@
+{
+    "chatBotConfig":"selam",
+    "ConfigStatus":"DRAFT",
+    "inUse":"true",
+    "projectGroupId":1,
+    "tenantId":1,
+    "projectGroupConfiguration": {
+        "projectGroupId": 1,
+        "widgetAccessToken": "NOT_DEFAULT_WIDGET_ACCESS_TOKEN",
+        "trainingToken": "TRAINING_WIDGET_ACCESS_TOKEN",
+        "chatbotGatewayUrls": [
+            "http://localhost:28080/",
+            "http://localhost:28180/",
+            "http://localhost:28280/",
+            "*"
+        ],
+        "projects": [
+            {
+                "name": "Default Project Visible Name",
+                "index": 0,
+                "languageKey": null,
+                "projectGroupId": 1,
+                "widgetAccessToken": "DEFAULT_WIDGET_ACCESS_TOKEN",
+                "projectId": 1,
+                "tenantId": 1,
+                "trainingToken": "TRAINING_WIDGET_ACCESS_TOKEN",
+                "description": null
+            }
+        ],
+        "projectConfiguration": {
+            "project": null,
+            "chatService": {
+                "rasa": {
+                    "auth": {
+                        "enabled": false,
+                        "token": ""
+                    },
+                    "zemberek": {
+                        "normalizationEnabled": false
+                    },
+                    "url": "http://localhost:5005",
+                    "trainingRasaUrl": "http://localhost:5005",
+                    "resourceLocation": "file:./chatbot-rasa",
+                    "initializingRunCommand": "taskkill /F /FI \"IMAGENAME eq python.exe\"",
+                    "coreRunCommand": "rasa run -m models --enable-api --endpoints endpoints.yml",
+                    "actionsRunCommand": "rasa run actions",
+                    "minimumReplyTimeInMilliseconds": 2000,
+                    "newMessageAcceptanceDelayInMilliseconds": 750,
+                    "maximumCharacterLength": 300,
+                    "maximumCharacterErrorMessage": "Mesajınız en fazla 300 karakterden oluşmalıdır.",
+                    "wordFilters": [],
+                    "liveChatAutoRedirectEnabled": false,
+                    "unknownLiveChatServiceType": "GENESYS",
+                    "unknownResponseKey": null
+                },
+                "genesys": {
+                    "checkWorkingHours": {
+                        "enabled": false,
+                        "url": [],
+                        "cacheExpireTimeInSeconds": 60
+                    },
+                    "checkAvailableAgent": {
+                        "enabled": false,
+                        "url": [],
+                        "cacheExpireTimeInSeconds": 30
+                    },
+                    "url": [],
+                    "refreshChatPeriodInMilliseconds": 4000,
+                    "genesysConversationExpireTimeInSeconds": 120
+                },
+                "dxway": {
+                    "checkConnectedAgents": {
+                        "enabled": false,
+                        "url": [],
+                        "cacheExpireTimeInSeconds": 60
+                    },
+                    "checkAvailableAgentSlots": {
+                        "enabled": false,
+                        "url": [],
+                        "cacheExpireTimeInSeconds": 30
+                    },
+                    "url": [],
+                    "token": "",
+                    "dxwayConversationExpireTimeInSeconds": 120
+                },
+                "defaultChatService": "RASA",
+                "conversationExpireTimeInMinutes": 10
+            },
+            "widgetConfiguration": {
+                "socketPath": "/websocket/chatbot",
+                "title": "Chatbot",
+                "subtitle": null,
+                "inputTextFieldHint": "Mesajınızı yazıp enter tuşuna basınız...",
+                "connectingText": "Bağlanıyor...",
+                "initPayload": "Merhaba, Hangi konuda yardımcı olmamı istersiniz?",
+                "redirectBotMessage": "Merhaba, Yardımcı olmamı istediğiniz başka bir konu var mı?",
+                "redirectLiveChatMessage": "Sizi müşteri temsilcimize yönlendiriyorum. Lütfen bekleyiniz.",
+                "errorMessage": "Şu anda işleminizi gerçekleştiremiyoruz.",
+                "informationTooltip": "Bilgilendirme Ekranı",
+                "returnBotTooltip": "Canlı konuşmayı sonlandır.",
+                "profileAvatar": "/content/img/logo.png",
+                "agentAvatar": "/content/img/agent.png",
+                "botAvatar": "/content/img/bot.png",
+                "adminAvatar": "/content/img/admin.png",
+                "systemAvatar": "/content/img/bot.png",
+                "clientAvatar": "/content/img/client.png",
+                "openLauncherImage": "/content/img/open-launcher.svg",
+                "closeImage": "/content/img/close-launcher.svg",
+                "readonly": false,
+                "embedded": false,
+                "showCloseButton": true,
+                "showFullScreenButton": false,
+                "hideWhenNotConnected": false,
+                "fullScreenMode": false,
+                "docViewer": false,
+                "interval": 2000,
+                "conversationHistoryTimeInMinutes": 720,
+                "inputCharacterLength": 300,
+                "params": {},
+                "socketDirectlyConnect": false,
+                "responseFontSize": "14px",
+                "responseFontFamily": "Hind",
+                "buttonType": "square",
+                "disableTooltips": false,
+                "newMessageAlert": false
+            },
+            "defaultResponses": {
+                "nullMessage": "Null Response",
+                "errorMessage": "Error Response",
+                "unknownMessage": "Unknown Response",
+                "genesysStartMessage": "Welcome! My name is {{nickname}}.",
+                "dxwayStartMessage": "Welcome! How can i help you?",
+                "liveChatEndMessage": "Bye! My name is {{nickname}}.",
+                "outOfWorkingHoursGenesysMessage": "{\"custom\": { \"type\": \"button\", \"text\":\"Müşteri temsilcilerimiz sadece hafta içi 09:00 - 17.30 saatleri arasında yazışma yoluyla canlı destek vermektedir. Dilerseniz Müşteri İletişim Merkezi'mizi arayabilir ya da Vakıf Katılım Dijital Asistan ile görüşmeye devam edebilirsiniz.\", \"menu\": [ { \"buttonType\": \"url\", \"src\": \"https://www.vakifkatilim.com.tr/tr/subesiz-bankacilik/musteri-iletisim-merkezi\", \"title\": \"Müşteri İletişim Merkezi'ni Ara\", \"img\": \"/content/img/musterihizmetleri.png\" } ]}}",
+                "notConnectedAgentDxwayMessage": "{\"custom\": { \"type\": \"button\", \"text\":\"Müşteri temsilcilerimiz sadece hafta içi 09:00 - 17.30 saatleri arasında yazışma yoluyla canlı destek vermektedir. Dilerseniz Müşteri İletişim Merkezi'mizi arayabilir ya da Vakıf Katılım Dijital Asistan ile görüşmeye devam edebilirsiniz.\", \"menu\": [ { \"buttonType\": \"url\", \"src\": \"https://www.vakifkatilim.com.tr/tr/subesiz-bankacilik/musteri-iletisim-merkezi\", \"title\": \"Müşteri İletişim Merkezi'ni Ara\", \"img\": \"/content/img/musterihizmetleri.png\" } ]}}",
+                "liveChatNotReachableMessage": "Üzgünüm şu an sizi canlı desteğe yönlendiremiyorum. Lütfen daha sonra tekrar deneyiniz.",
+                "liveChatRedirectionUnknownMessages": [],
+                "outOfWorkingHoursUnknownMessages": [],
+                "duplicationMessages": {}
+            },
+            "information": {
+                "formBackgroundColor": "#194E91",
+                "widgetColor": "#E51A92",
+                "headerColor": "#062E54",
+                "formItemColor": "#DAE5F2",
+                "images": [
+                    "item1.png",
+                    "item2.png",
+                    "item3.png",
+                    "item4.png",
+                    "item5.png",
+                    "item6.png"
+                ],
+                "texts": [
+                    "Bankacılık ürün ve hizmetleri hakkında bilgi verebilirim.",
+                    "Finansman hesaplaması yapabilirim.",
+                    "Kar payı hesaplaması yapabilirim.",
+                    "Size en yakın VMatik ve şubelerimizi gösterebilirim.",
+                    "Döviz kurları hakkında bilgi verebilirim.",
+                    "Ürün ve hizmet ücretleri hakkında bilgi verebilirim."
+                ],
+                "menuQuickReplies": [
+                    "Bankacılık",
+                    "Finansman hesaplama",
+                    "Kar payı hesaplama",
+                    "En yakın şube",
+                    "Döviz kurları",
+                    "Hizmet Ücretleri"
+                ],
+                "titleInfo": "Merhaba ben Vakıf Katılım Dijital Asistan. Aşağıdaki konularda size yardımcı olabilirim.",
+                "info": "Vakıf Katılım Dijital Asistan sizden, Müşteri Numaranız ve Şifreniz, Hesap Numaranız, TC Kimlik Numaranız, Banka ve Kredi Kartı bilgileriniz, Kart şifresi ve SMS şifresi gibi kişisel bilgiler istemez. Güvenliğiniz açısından Vakıf Katılım Dijital Asistanınız ile görüşmeniz sırasında size ait bilgileri paylaşmayınız.",
+                "fontSize": "14px",
+                "fontFamily": "Hind"
+            },
+            "ipWhiteList": {
+                "rasa": []
+            }
+        },
+        "projectConfigurations": [
+            {
+                "project": null,
+                "chatService": {
+                    "rasa": {
+                        "auth": {
+                            "enabled": false,
+                            "token": "b958ba0f-4241-430a-bcd6-ff2d2568bf2a"
+                        },
+                        "zemberek": {
+                            "normalizationEnabled": false
+                        },
+                        "url": "http://localhost:5005",
+                        "trainingRasaUrl": "http://localhost:5005",
+                        "resourceLocation": "file:./chatbot-rasa",
+                        "initializingRunCommand": "taskkill /F /FI \"IMAGENAME eq python.exe\"",
+                        "coreRunCommand": "rasa run -m models --enable-api --endpoints endpoints.yml",
+                        "actionsRunCommand": "rasa run actions",
+                        "minimumReplyTimeInMilliseconds": 1000,
+                        "newMessageAcceptanceDelayInMilliseconds": 750,
+                        "maximumCharacterLength": 300,
+                        "maximumCharacterErrorMessage": "Mesajınız en fazla ${chat-service.rasa.maximum-character-length} karakterden oluşmalıdır.",
+                        "wordFilters": [
+                            {
+                                "regex": "(\\D)\\1{2,}",
+                                "replacement": "$1$1"
+                            },
+                            {
+                                "regex": "^[/]*",
+                                "replacement": " "
+                            }
+                        ],
+                        "liveChatAutoRedirectEnabled": true,
+                        "unknownLiveChatServiceType": "GENESYS",
+                        "unknownResponseKey": "__UNKNOWN_RESPONSE__"
+                    },
+                    "genesys": {
+                        "checkWorkingHours": {
+                            "enabled": true,
+                            "url": [
+                                "http://192.168.2.36/GenesysConfigService/Cfg.asmx?wsdl"
+                            ],
+                            "cacheExpireTimeInSeconds": 60
+                        },
+                        "checkAvailableAgent": {
+                            "enabled": true,
+                            "url": [
+                                "http://192.168.2.36:8988/urs/stat/sdata?statistic=CurrentChatLoggedIn&tenant=Environment&targets=Chat.GA"
+                            ],
+                            "cacheExpireTimeInSeconds": 30
+                        },
+                        "url": [
+                            "http://192.168.2.36:18182"
+                        ],
+                        "refreshChatPeriodInMilliseconds": 4000,
+                        "genesysConversationExpireTimeInSeconds": 120
+                    },
+                    "dxway": {
+                        "checkConnectedAgents": {
+                            "enabled": true,
+                            "url": [
+                                "https://dx-handover-manager.herokuapp.com/monitoring/connectedAgents"
+                            ],
+                            "cacheExpireTimeInSeconds": 60
+                        },
+                        "checkAvailableAgentSlots": {
+                            "enabled": true,
+                            "url": [
+                                "https://dx-handover-manager.herokuapp.com/monitoring/availableAgentSlots"
+                            ],
+                            "cacheExpireTimeInSeconds": 30
+                        },
+                        "url": [
+                            "https://dx-handover-manager.herokuapp.com"
+                        ],
+                        "token": "00D09000006xp0H!AR0AQBR2TVYSvh85NMauGd3PfixuU1S5MmBLQkIYuKePuXClAXJs3M1qnafRdRvUudCSqmzrdPTvPXEx6cjEPrwiOycKlrqv",
+                        "dxwayConversationExpireTimeInSeconds": 120
+                    },
+                    "defaultChatService": "RASA",
+                    "conversationExpireTimeInMinutes": 10
+                },
+                "widgetConfiguration": {
+                    "socketPath": "/websocket/chatbot",
+                    "title": "Dijital Asistan",
+                    "subtitle": null,
+                    "inputTextFieldHint": "Mesajınızı yazıp enter tuşuna basınız...",
+                    "connectingText": "Bağlanıyor...",
+                    "initPayload": "Merhaba, Ben Vakıf Katılım Dijital Asistan. Size yardımcı olmak için buradayım. Hangi konuda yardımcı olmamı istersiniz?",
+                    "redirectBotMessage": "Merhaba, Ben Vakıf Katılım Dijital Asistan. İsterseniz görüşmeye buradan devam edebiliriz. Yardımcı olmamı istediğiniz başka bir konu var mı?",
+                    "redirectLiveChatMessage": "Sizi müşteri temsilcimize yönlendiriyorum. Lütfen bekleyiniz.",
+                    "errorMessage": "${default-responses.error-message}",
+                    "informationTooltip": "Bilgilendirme Ekranı",
+                    "returnBotTooltip": "Canlı konuşmayı sonlandır.",
+                    "profileAvatar": "/content/img/logo.png",
+                    "agentAvatar": "/content/img/agent.png",
+                    "botAvatar": "/content/img/bot.png",
+                    "adminAvatar": "/content/img/admin.png",
+                    "systemAvatar": "/content/img/bot.png",
+                    "clientAvatar": "/content/img/client.png",
+                    "openLauncherImage": "/content/img/open-launcher.svg",
+                    "closeImage": "/content/img/close-launcher.svg",
+                    "readonly": false,
+                    "embedded": false,
+                    "showCloseButton": true,
+                    "showFullScreenButton": false,
+                    "hideWhenNotConnected": false,
+                    "fullScreenMode": false,
+                    "docViewer": false,
+                    "interval": 2000,
+                    "conversationHistoryTimeInMinutes": 720,
+                    "inputCharacterLength": 300,
+                    "params": {
+                        "storage": "local",
+                        "images": {
+                            "dims": {
+                                "width": 300,
+                                "height": 200
+                            }
+                        }
+                    },
+                    "socketDirectlyConnect": false,
+                    "responseFontSize": "14px",
+                    "responseFontFamily": "Hind",
+                    "buttonType": "square",
+                    "disableTooltips": false,
+                    "newMessageAlert": false
+                },
+                "defaultResponses": {
+                    "nullMessage": "Söylediğinizi anlayamadım. Daha farklı bir şekilde ifade edebilir misiniz?",
+                    "errorMessage": "Söylediğinizi anlayamadım. Daha farklı bir şekilde ifade edebilir misiniz?",
+                    "unknownMessage": "Söylediğinizi anlayamadım. Daha farklı bir şekilde ifade edebilir misiniz?",
+                    "genesysStartMessage": "Merhaba. Ben {{nickname}}. Size nasıl yardımcı olabilirim?",
+                    "dxwayStartMessage": "Merhaba. Size nasıl yardımcı olabilirim?",
+                    "liveChatEndMessage": "Canlı destek oturumunuz sonlanmıştır. Vakıf Katılım Dijital Asistan ile görüşmeye devam edebilirsiniz.",
+                    "outOfWorkingHoursGenesysMessage": "{\"custom\": { \"type\": \"button\", \"text\":\"Müşteri temsilcilerimiz sadece hafta içi 09:00 - 17.30 saatleri arasında yazışma yoluyla canlı destek vermektedir. Dilerseniz Müşteri İletişim Merkezi'mizi arayabilir ya da Vakıf Katılım Dijital Asistan ile görüşmeye devam edebilirsiniz.\", \"menu\": [ { \"buttonType\": \"url\", \"src\": \"https://www.vakifkatilim.com.tr/tr/subesiz-bankacilik/musteri-iletisim-merkezi\", \"title\": \"Müşteri İletişim Merkezi'ni Ara\", \"img\": \"/content/img/musterihizmetleri.png\" } ]}}",
+                    "notConnectedAgentDxwayMessage": "{\"custom\": { \"type\": \"button\", \"text\":\"Müşteri temsilcilerimiz sadece hafta içi 09:00 - 17.30 saatleri arasında yazışma yoluyla canlı destek vermektedir. Dilerseniz Müşteri İletişim Merkezi'mizi arayabilir ya da Vakıf Katılım Dijital Asistan ile görüşmeye devam edebilirsiniz.\", \"menu\": [ { \"buttonType\": \"url\", \"src\": \"https://www.vakifkatilim.com.tr/tr/subesiz-bankacilik/musteri-iletisim-merkezi\", \"title\": \"Müşteri İletişim Merkezi'ni Ara\", \"img\": \"/content/img/musterihizmetleri.png\" } ]}}",
+                    "liveChatNotReachableMessage": "Üzgünüm şu an sizi canlı desteğe yönlendiremiyorum. Lütfen daha sonra tekrar deneyiniz.",
+                    "liveChatRedirectionUnknownMessages": [
+                        "Söylediğinizi anlayamadım. Daha farklı bir şekilde ifade edebilir misiniz?",
+                        "Maalesef isteğinizi anlayamadım ama gelişime açık biriyim, isteğinizi farklı sözcüklerle ifade edebilir misiniz?",
+                        "{\"custom\": { \"type\": \"changeChatMessageTarget\", \"target\": \"GENESYS\", \"text\":\"Üzgünüm şu an için size yardımcı olamıyorum. Sizi canlı destek almak için Müşteri Temsilcimize aktarıyorum. Onaylıyor musunuz?\", \"menu\": [ { \"buttonType\": \"payload\", \"title\": \"Onayla\", \"payload\": \"changeChatMessageTarget\" } ]}}"
+                    ],
+                    "outOfWorkingHoursUnknownMessages": [
+                        "Söylediğinizi anlayamadım. Daha farklı bir şekilde ifade edebilir misiniz?",
+                        "Maalesef istediğinizi anlayamadım ama gelişime açık biriyim, isteğinizi farklı sözcüklerle ifade edebilir misiniz?",
+                        "Acaba yardımcı olmamı istediğiniz konuyu farklı bir şekilde ifade edebilir misiniz?",
+                        "Dilerseniz size başka bir konuda yardımcı olabilirim.",
+                        "Yardımcı olmamı istediğiniz başka bir konu varsa destek olmak için hazırım."
+                    ],
+                    "duplicationMessages": {
+                        "4": "Yardımcı olmamı istediğiniz başka bir konu varsa destek olmak için hazırım.",
+                        "5": "Teşekkür eder, hayırlı günler dilerim."
+                    }
+                },
+                "information": {
+                    "formBackgroundColor": "#194E91",
+                    "widgetColor": "#E51A92",
+                    "headerColor": "#062E54",
+                    "formItemColor": "#DAE5F2",
+                    "images": [
+                        "item1.png",
+                        "item2.png",
+                        "item3.png",
+                        "item4.png",
+                        "item5.png",
+                        "item6.png"
+                    ],
+                    "texts": [
+                        "Bankacılık ürün ve hizmetleri hakkında bilgi verebilirim.",
+                        "Finansman hesaplaması yapabilirim.",
+                        "Kar payı hesaplaması yapabilirim.",
+                        "Size en yakın VMatik ve şubelerimizi gösterebilirim.",
+                        "Döviz kurları hakkında bilgi verebilirim.",
+                        "Ürün ve hizmet ücretleri hakkında bilgi verebilirim."
+                    ],
+                    "menuQuickReplies": [
+                        "Bankacılık",
+                        "Finansman hesaplama",
+                        "Kar payı hesaplama",
+                        "En yakın şube",
+                        "Döviz kurları",
+                        "Hizmet Ücretleri"
+                    ],
+                    "titleInfo": "Merhaba ben Vakıf Katılım Dijital Asistan. Aşağıdaki konularda size yardımcı olabilirim.",
+                    "info": "Vakıf Katılım Dijital Asistan sizden, Müşteri Numaranız ve Şifreniz, Hesap Numaranız, TC Kimlik Numaranız, Banka ve Kredi Kartı bilgileriniz, Kart şifresi ve SMS şifresi gibi kişisel bilgiler istemez. Güvenliğiniz açısından Vakıf Katılım Dijital Asistanınız ile görüşmeniz sırasında size ait bilgileri paylaşmayınız..",
+                    "fontSize": "14px",
+                    "fontFamily": "Hind"
+                },
+                "ipWhiteList": {
+                    "rasa": [
+                        "0.0.0.0/0"
+                    ]
+                }
+            }
+        ],
+        "projectGroupName": "Default Project",
+        "projectGroupDescription": null,
+        "projectGroupActive": true,
+        "projectGroupWidgetFqdn": "http://localhost:28080"
+    }
+}
