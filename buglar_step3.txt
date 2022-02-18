@@ -1,0 +1,78 @@
+---> Buglar <---
+
+1) Config alanları yml'a dönüştürülürken değişken isimleri kebap case olmalı.
+2) Session config alanı model config alanına kaydediliyor.
+3) Model config alanı doldurulmuyor.
+4) Virtual assistant save'de config tablosu update edilmiyor.
+5) 
+- (auth, unknownResponseKey, wordFilters, zemberek, ipWhiteList, params) -> yanlış dolduruluyor
+- (duplicationMessages, checkAvailableAgentSlots->url, checkConnectedAgents->url, dxway->url, checkAvailableAgent->url, checkWorkingHours->url, genesys->url, liveChatRedirectionUnknownMessages, outOfWorkingHoursUnknownMessages) -> Array alanlar [] içinde değil - ile listelenmeli.
+- (images, info, menuQuickReplies, texts, fontFamily, fontSize, buttonTitleFontFamily, buttonTitleFontSize, buttonType, clientFontFamily, clientFontSize, headerTitleFontFamily, headerTitleFontSize, responseFontFamily, responseFontSize) -> test edilmeli
+- (project: null, subtitle???) -> olmamalı
+6) Statüsü finish olan virtual assistant editlenirken alanlar dolu gelmiyor, sayfa geçişinde de yeni taslak oluşuyor.
+
+ json kalkacak test
+ dil ekledikten sonra 1. adımda virtual Assistant Name silinip eklendikten sonra dil tekrar ekleniyor test
+ Diller'deki tırnaklar kalkacak test
+ reset olmayacak test
+ dile yoksa form valid olmayacak test
+ tooltip,translation miktar test
+ dil ekleme disabled oluyor  test
+ 
+ 
+ rgb(146 215 102)
+ rgba(40, 167, 69, 1)
+ 
+ dxway işaretlenince var olan dillere default mesaj yerleştiriyor
+ 
+ information ver  
+ 
+ önceden kaydedilmiş asistanların dil bilgileri gelmiyor
+ 
+ sanal asistan adını Açıklama kısmına kopyalıyor
+ 
+
+
+her adımda yeni bir saveLastStep ediliyor
+
+formgroup class'tan geldiği için any yapmak durumundamıyım yoksa serviceUserPassword alanı ne yapılmalı
+
+http://localhost:9000/
+
+submit ile ilgili 
+
+finished ve draft kaydediliyor 3. sayfa'ya veriler geliyor 
+
+maximumCharacterErrorMessage boş değer geliyor
+
+dxway , livechat , genesys aktif olunca default değerler geliyor bu değerler 
+
+checkbox'ın click fonksiyonuna konulamaz
+
+if (this.getProjectConfigurationDTO(index).defaultResponses.dxwayStartMessage&&this.getProjectConfigurationDTO(index).defaultResponses.dxwayStartMessage.length>20){
+        projectConfiguration.addControl('dxwayStartMessage',new FormControl('',[Validators.required]))
+      }else{
+        projectConfiguration.addControl(
+          'dxwayStartMessage',
+          new FormControl(this.getProjectConfigurationDTO(index).defaultResponses.dxwayStartMessage, [Validators.required])
+        );
+      }
+	  
+	  
+	  if (this.dxwayActive === true && this.addedVirtualAssistantLanguages.length===0) {
+      projectConfiguration.addControl(
+        'dxwayStartMessage',
+        new FormControl(this.getProjectConfigurationDTO(index).defaultResponses.dxwayStartMessage, [Validators.required])
+      );
+      projectConfiguration.addControl(
+        'notConnectedAgentDxwayMessage',
+        new FormControl(this.getProjectConfigurationDTO(index).defaultResponses.notConnectedAgentDxwayMessage, [Validators.required])
+      );
+    }else if(this.dxwayActive === true && this.addedVirtualAssistantLanguages.length>0){
+      projectConfiguration.addControl(
+        'dxwayStartMessage',
+        new FormControl(' ', [Validators.required]))
+      projectConfiguration.addControl(
+        'notConnectedAgentDxwayMessage',
+        new FormControl(' ', [Validators.required]))
+    } 
